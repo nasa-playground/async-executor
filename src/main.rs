@@ -4,7 +4,6 @@ use std::future::Future;
 use std::sync::mpsc::{sync_channel, Receiver, SyncSender};
 use std::sync::{Arc, Mutex};
 use std::task::{Context, Poll};
-use std::time::Duration;
 
 fn main() {
     let (executor, spawner) = new_executor_and_spawner();
@@ -15,7 +14,7 @@ fn main() {
 
         // TODO Do slower processing
         let future = async {
-            for _ in (1..2) {
+            for _ in 1..5 {
                 println!("loop");
             }
         };
